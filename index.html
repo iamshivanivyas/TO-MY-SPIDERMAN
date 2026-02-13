@@ -24,7 +24,6 @@ body{
     align-items:center;
     color:white;
     text-align:center;
-    overflow:hidden;
 }
 
 h1{
@@ -71,7 +70,7 @@ button{
     to{ transform:translateY(-10vh); opacity:0; }
 }
 
-/* ================= SCENE 2 (YES) ================= */
+/* ================= SCENE 2 ================= */
 
 #scene2{
     position:fixed;
@@ -81,7 +80,6 @@ button{
     display:none;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     text-align:center;
     color:white;
 }
@@ -93,38 +91,22 @@ button{
     background:rgba(0,0,0,0.3);
 }
 
+/* Characters positioned RIGHT and STILL */
 #characters{
     position:absolute;
     bottom:0;
-    width:320px;
-    animation:swing 3s ease-in-out infinite alternate;
+    right:5%;
+    width:300px;
 }
 
-@keyframes swing{
-    from{ transform:translateX(-60px); }
-    to{ transform:translateX(60px); }
-}
-
+/* Love text */
 #loveText{
     font-size:36px;
-    z-index:2;
     text-shadow:0 0 20px pink;
+    z-index:2;
 }
 
-/* Confetti */
-.confetti{
-    position:absolute;
-    width:10px;
-    height:10px;
-    animation:fall 3s linear infinite;
-}
-
-@keyframes fall{
-    from{ transform:translateY(-100px); }
-    to{ transform:translateY(100vh); }
-}
-
-/* ================= SCENE 3 (NO) ================= */
+/* ================= SCENE 3 ================= */
 
 #scene3{
     position:fixed;
@@ -137,11 +119,6 @@ button{
     align-items:center;
     color:white;
     text-align:center;
-}
-
-.catText{
-    font-size:30px;
-    margin-top:20px;
 }
 </style>
 </head>
@@ -161,13 +138,20 @@ button{
 <div id="scene2">
     <div class="overlay"></div>
     <h1 id="loveText">I LOVE YOU MY RIDDHU PIDDHU RASGULLE 💖</h1>
+
+    <div style="margin-top:20px; z-index:2;">
+        <button onclick="window.open('https://www.youtube.com/watch?v=Fxypz6kJ-98','_blank')">
+            🎵 Play Our Song
+        </button>
+    </div>
+
     <img id="characters" src="spideykitty.jpg">
 </div>
 
 <!-- SCENE 3 -->
 <div id="scene3">
     <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="200">
-    <div class="catText">You should say yes, you farty pants.</div>
+    <h1>You should say yes, you farty pants.</h1>
 </div>
 
 <script>
@@ -194,23 +178,12 @@ setInterval(()=>{
 
 /* YES BUTTON */
 document.getElementById("yes").onclick=function(){
-
     document.getElementById("scene1").style.display="none";
     document.getElementById("scene2").style.display="flex";
-
-    /* Confetti */
-    for(let i=0;i<60;i++){
-        let conf=document.createElement("div");
-        conf.className="confetti";
-        conf.style.left=Math.random()*100+"vw";
-        conf.style.background=["red","pink","yellow","white"][Math.floor(Math.random()*4)];
-        document.body.appendChild(conf);
-    }
 };
 
 /* NO BUTTON */
 document.getElementById("no").onclick=function(){
-
     document.getElementById("scene1").style.display="none";
     document.getElementById("scene3").style.display="flex";
 
@@ -218,7 +191,6 @@ document.getElementById("no").onclick=function(){
         location.reload();
     },4000);
 };
-
 </script>
 
 </body>
