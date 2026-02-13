@@ -3,183 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooftop Romance</title>
+<title>Multiverse Rooftop</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Georgia, serif;
-    background: linear-gradient(to bottom, #0d1b2a, #000);
-    color: gold;
-    text-align: center;
-    overflow-x: hidden;
+body{
+    margin:0;
+    overflow:hidden;
+    background:linear-gradient(to bottom,#050816,#000);
+    font-family:Georgia,serif;
+    color:gold;
 }
 
-/* Center Container */
-.container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+/* STAR FIELD */
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
 }
 
-h1 {
-    font-size: 22px;
-    max-width: 600px;
-    line-height: 1.6;
-    text-shadow: 0 0 15px gold;
+/* MOON */
+.moon{
+    position:absolute;
+    top:10%;
+    right:10%;
+    width:150px;
+    height:150px;
+    background:radial-gradient(circle,#fff,#ddd 60%,transparent 70%);
+    border-radius:50%;
+    box-shadow:0 0 40px #fff;
 }
 
-/* Buttons */
-.buttons {
-    margin-top: 20px;
+/* HEARTS AROUND MOON */
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    animation:float 4s infinite ease-in-out;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
 }
 
-button {
-    padding: 12px 28px;
-    margin: 10px;
-    border: none;
-    border-radius: 30px;
-    font-size: 18px;
-    cursor: pointer;
+/* SKYLINE */
+.skyline{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:200px;
+    background:linear-gradient(to top,#000 80%,transparent);
+}
+.building{
+    position:absolute;
+    bottom:0;
+    background:#111;
 }
 
-#yes {
-    background: crimson;
-    color: white;
+/* WEBS */
+.web{
+    position:absolute;
+    width:150px;
+    height:150px;
+    border:2px solid white;
+    border-radius:50%;
+    border-top:none;
+    border-left:none;
+    opacity:0.3;
+}
+.web.left{top:0;left:0;}
+.web.right{top:0;right:0;transform:scaleX(-1);}
+
+/* CENTER TEXT */
+.center{
+    position:absolute;
+    top:40%;
+    width:100%;
+    text-align:center;
+}
+h1{
+    text-shadow:0 0 20px gold;
+}
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:25px;
+    font-size:18px;
+    cursor:pointer;
+}
+#yes{background:crimson;color:white;}
+#no{background:#444;color:white;}
+#song{background:gold;color:black;}
+
+/* SWING */
+.swing{
+    position:absolute;
+    top:10%;
+    left:-200px;
+    width:120px;
+    animation:swing 3s forwards ease-in-out;
+}
+@keyframes swing{
+    0%{left:-200px;top:5%;}
+    50%{top:25%;}
+    100%{left:110%;top:10%;}
 }
 
-#no {
-    background: #444;
-    color: white;
+/* SHAKE */
+.shake{
+    animation:shake 0.5s;
+}
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-10px);}
+    50%{transform:translateX(10px);}
+    75%{transform:translateX(-10px);}
+    100%{transform:translateX(0);}
 }
 
-/* Swing Animation */
-.swing {
-    position: fixed;
-    top: 20%;
-    left: -200px;
-    font-size: 70px;
-    animation: swingAcross 3s forwards ease-in-out;
+/* LOVE TEXT */
+.love{
+    position:absolute;
+    top:60%;
+    width:100%;
+    text-align:center;
+    font-size:28px;
+    color:#ff4d6d;
+    text-shadow:0 0 20px hotpink;
 }
 
-@keyframes swingAcross {
-    0% { left: -200px; top: 10%; }
-    50% { top: 30%; }
-    100% { left: 110%; top: 15%; }
+/* BUBBLE */
+.bubble{
+    position:absolute;
+    bottom:25%;
+    left:50%;
+    transform:translateX(-50%);
+    background:white;
+    color:black;
+    padding:15px;
+    border-radius:20px;
+    font-weight:bold;
 }
 
-/* Speech bubble */
-.bubble {
-    position: fixed;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    color: black;
-    padding: 15px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    max-width: 80%;
-}
-
-/* Love message */
-.love {
-    font-size: 28px;
-    color: red;
-    text-shadow: 0 0 20px hotpink;
-    margin-top: 20px;
-}
-
-/* Fart cloud */
-.fart {
-    position: fixed;
-    bottom: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 60px;
-}
-
-/* Responsive scaling */
-@media (min-width: 768px) {
-    h1 { font-size: 28px; }
-    button { font-size: 20px; }
-    .swing { font-size: 90px; }
+/* FART */
+.fart{
+    position:absolute;
+    bottom:30%;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:40px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="mainContent">
-    <h1>
-        In every universe…<br>
-        in every timeline…<br>
-        I’d still swing back to you.<br><br>
-        Rhythm, will you be my Valentine?
-    </h1>
+<div class="moon"></div>
+<div class="web left"></div>
+<div class="web right"></div>
+<div class="skyline"></div>
 
-    <div class="buttons">
-        <button id="yes">YES ❤️</button>
-        <button id="no">NO 💔</button>
-    </div>
+<div class="center" id="main">
+<h1>
+In every universe…<br>
+in every timeline…<br>
+I’d still swing back to you.<br><br>
+Rhythm, will you be my Valentine?
+</h1>
+
+<button id="yes">YES ❤️</button>
+<button id="no">NO 💔</button><br>
+<button id="song">🎵 Play Our Song</button>
 </div>
 
 <script>
-const main = document.getElementById("mainContent");
 
-/* YES BUTTON */
-document.getElementById("yes").addEventListener("click", function() {
+/* STAR GENERATOR */
+for(let i=0;i<1000;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    let size=Math.random()*2+1;
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+    star.style.top=Math.random()*100+"vh";
+    star.style.left=Math.random()*100+"vw";
+    document.body.appendChild(star);
+}
 
-    main.innerHTML = "";
+/* HEARTS AROUND MOON */
+for(let i=0;i<8;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="♥";
+    heart.style.top=(12+Math.random()*10)+"%";
+    heart.style.right=(12+Math.random()*10)+"%";
+    document.body.appendChild(heart);
+}
 
-    const swing = document.createElement("div");
-    swing.className = "swing";
-    swing.innerHTML = "🕷️💑";
+/* SKYLINE BUILDINGS */
+for(let i=0;i<30;i++){
+    let b=document.createElement("div");
+    b.className="building";
+    b.style.left=(i*4)+"%";
+    b.style.width="3%";
+    b.style.height=(50+Math.random()*150)+"px";
+    document.querySelector(".skyline").appendChild(b);
+}
+
+/* SONG BUTTON */
+document.getElementById("song").onclick=function(){
+    window.open("https://youtu.be/8rL4jorQlXw?si=llccNCCDrtXP8pK8","_blank");
+};
+
+/* YES */
+document.getElementById("yes").onclick=function(){
+    document.body.style.background="black";
+    document.querySelectorAll(".star").forEach(s=>s.style.transform="scale(2)");
+
+    let swing=document.createElement("div");
+    swing.className="swing";
+    swing.innerHTML=`
+    <svg viewBox="0 0 100 200">
+      <circle cx="50" cy="40" r="10" fill="red"/>
+      <rect x="45" y="50" width="10" height="40" fill="red"/>
+      <circle cx="65" cy="50" r="8" fill="pink"/>
+    </svg>`;
     document.body.appendChild(swing);
 
-    setTimeout(() => {
-        const bubble = document.createElement("div");
-        bubble.className = "bubble";
-        bubble.innerHTML = "We are meant to be together.<br>I love you.";
-        document.body.appendChild(bubble);
-
-        const love = document.createElement("div");
-        love.className = "love";
-        love.innerHTML = "I LOVE YOU MY RIDDHU PIDDHU RASGULLE 💖";
+    setTimeout(()=>{
+        let love=document.createElement("div");
+        love.className="love";
+        love.innerHTML="We are meant to be in every universe.<br>I will swing back to you.";
         document.body.appendChild(love);
-    }, 2500);
-});
+    },2500);
+};
 
-/* NO BUTTON */
-document.getElementById("no").addEventListener("click", function() {
+/* NO */
+document.getElementById("no").onclick=function(){
+    document.body.classList.add("shake");
 
-    const swing = document.createElement("div");
-    swing.className = "swing";
-    swing.innerHTML = "🕷️";
+    let swing=document.createElement("div");
+    swing.className="swing";
+    swing.innerHTML=`<svg viewBox="0 0 100 200">
+      <circle cx="50" cy="40" r="10" fill="red"/>
+      <rect x="45" y="50" width="10" height="40" fill="red"/>
+    </svg>`;
     document.body.appendChild(swing);
 
-    setTimeout(() => {
-        const bubble = document.createElement("div");
-        bubble.className = "bubble";
-        bubble.innerHTML = "You're supposed to say YES, you farty.";
+    setTimeout(()=>{
+        let bubble=document.createElement("div");
+        bubble.className="bubble";
+        bubble.innerHTML="You should say YES, you farty.";
         document.body.appendChild(bubble);
 
-        const fart = document.createElement("div");
-        fart.className = "fart";
-        fart.innerHTML = "💨";
+        let fart=document.createElement("div");
+        fart.className="fart";
+        fart.innerHTML="💨";
         document.body.appendChild(fart);
 
-        setTimeout(() => {
-            document.body.innerHTML = "";
+        setTimeout(()=>{
             location.reload();
-        }, 2500);
+        },3000);
 
-    }, 2000);
-});
+    },2000);
+};
 </script>
 
 </body>
