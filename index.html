@@ -26,13 +26,13 @@ body{
     text-align:center;
 }
 
-h1{
-    font-size:45px;
-    margin-bottom:20px;
+#scene1 h1{
+    font-size:48px;
+    margin-bottom:30px;
 }
 
 button{
-    padding:12px 30px;
+    padding:14px 35px;
     margin:10px;
     border:none;
     border-radius:30px;
@@ -40,8 +40,15 @@ button{
     cursor:pointer;
 }
 
-#yes{ background:#ff4d6d; color:white; }
-#no{ background:#555; color:white; }
+#yes{
+    background:#ff4d6d;
+    color:white;
+}
+
+#no{
+    background:#444;
+    color:white;
+}
 
 .music-btn{
     background:#ff4d6d;
@@ -97,17 +104,22 @@ button{
     background:rgba(0,0,0,0.3);
 }
 
+#loveContainer{
+    z-index:2;
+}
+
+#loveText{
+    font-size:42px;
+    text-shadow:0 0 20px pink;
+    margin-bottom:20px;
+}
+
+/* Characters positioned right and still */
 #characters{
     position:absolute;
     bottom:0;
     right:5%;
     width:320px;
-}
-
-#loveText{
-    font-size:38px;
-    text-shadow:0 0 20px pink;
-    z-index:2;
 }
 
 /* ================= SCENE 3 ================= */
@@ -123,6 +135,11 @@ button{
     align-items:center;
     color:white;
     text-align:center;
+}
+
+#scene3 h1{
+    margin-top:20px;
+    font-size:32px;
 }
 </style>
 </head>
@@ -141,11 +158,12 @@ button{
 <!-- SCENE 2 -->
 <div id="scene2">
     <div class="overlay"></div>
-    <h1 id="loveText">I LOVE YOU MY RIDDHU PIDDHU RASGULLE 💖</h1>
 
-    <div style="margin-top:20px; z-index:2;">
+    <div id="loveContainer">
+        <h1 id="loveText">I LOVE YOU MY RIDDHU PIDDHU RASGULLE 💖</h1>
+
         <button class="music-btn"
-        onclick="window.open('https://www.youtube.com/watch?v=Fxypz6kJ-98','_blank')">
+        onclick="window.open('https://www.youtube.com/watch?v=agGUnCQMk-s','_blank')">
         🎵 Play Our Song
         </button>
     </div>
