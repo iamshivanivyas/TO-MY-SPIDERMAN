@@ -27,7 +27,7 @@ body{
 }
 
 #scene1 h1{
-    font-size:48px;
+    font-size:50px;
     margin-bottom:30px;
 }
 
@@ -51,9 +51,9 @@ button{
 }
 
 .music-btn{
-    background:#ff4d6d;
+    background:#1DB954;
     color:white;
-    box-shadow:0 0 15px pink;
+    box-shadow:0 0 15px #1DB954;
 }
 
 /* Stars */
@@ -114,7 +114,7 @@ button{
     margin-bottom:20px;
 }
 
-/* Characters positioned right and still */
+/* Characters fixed on RIGHT */
 #characters{
     position:absolute;
     bottom:0;
@@ -163,8 +163,8 @@ button{
         <h1 id="loveText">I LOVE YOU MY RIDDHU PIDDHU RASGULLE 💖</h1>
 
         <button class="music-btn"
-        onclick="window.open('https://www.youtube.com/watch?v=agGUnCQMk-s','_blank')">
-        🎵 Play Our Song
+        onclick="window.open('https://open.spotify.com/track/6XNANAB7sFvkfho6bMCp7o','_blank')">
+        🎵 Listen on Spotify
         </button>
     </div>
 
@@ -180,7 +180,7 @@ button{
 <script>
 
 /* Create stars */
-for(let i=0;i<300;i++){
+for(let i=0;i<350;i++){
     let star=document.createElement("div");
     star.className="star";
     star.style.top=Math.random()*100+"vh";
