@@ -11,7 +11,7 @@ body{
     font-family: Arial, sans-serif;
 }
 
-/* ================= SCENE 1 ================= */
+/* ========== SCENE 1 ========== */
 
 #scene1{
     position:fixed;
@@ -83,7 +83,7 @@ button{
     to{ transform:translateY(-10vh); opacity:0; }
 }
 
-/* ================= SCENE 2 ================= */
+/* ========== SCENE 2 (YES) ========== */
 
 #scene2{
     position:fixed;
@@ -114,7 +114,7 @@ button{
     margin-bottom:20px;
 }
 
-/* Characters fixed on RIGHT */
+/* Characters on RIGHT */
 #characters{
     position:absolute;
     bottom:0;
@@ -122,7 +122,7 @@ button{
     width:320px;
 }
 
-/* ================= SCENE 3 ================= */
+/* ========== SCENE 3 (NO) ========== */
 
 #scene3{
     position:fixed;
@@ -179,7 +179,7 @@ button{
 
 <script>
 
-/* Create stars */
+/* Stars */
 for(let i=0;i<350;i++){
     let star=document.createElement("div");
     star.className="star";
@@ -199,13 +199,13 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),6000);
 },300);
 
-/* YES BUTTON */
+/* YES */
 document.getElementById("yes").onclick=function(){
     document.getElementById("scene1").style.display="none";
     document.getElementById("scene2").style.display="flex";
 };
 
-/* NO BUTTON */
+/* NO */
 document.getElementById("no").onclick=function(){
     document.getElementById("scene1").style.display="none";
     document.getElementById("scene3").style.display="flex";
