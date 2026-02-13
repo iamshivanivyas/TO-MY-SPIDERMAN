@@ -1,271 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Multiverse Rooftop</title>
+<title>Multiverse Valentine</title>
 
 <style>
-body{
-    margin:0;
-    overflow:hidden;
-    background:linear-gradient(to bottom,#050816,#000);
-    font-family:Georgia,serif;
-    color:gold;
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
-/* STAR FIELD */
-.star{
-    position:absolute;
-    background:white;
-    border-radius:50%;
-    opacity:0.8;
+/* SCENE 1 - NIGHT SKY */
+#scene1 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* MOON */
-.moon{
-    position:absolute;
-    top:10%;
-    right:10%;
-    width:150px;
-    height:150px;
-    background:radial-gradient(circle,#fff,#ddd 60%,transparent 70%);
-    border-radius:50%;
-    box-shadow:0 0 40px #fff;
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://i.imgur.com/9QpJ6qM.png");
+    background-size: cover;
+    animation: moveStars 60s linear infinite;
+    opacity: 0.7;
 }
 
-/* HEARTS AROUND MOON */
-.heart{
-    position:absolute;
-    color:#ff4d6d;
-    animation:float 4s infinite ease-in-out;
-}
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
+@keyframes moveStars {
+    from {background-position: 0 0;}
+    to {background-position: 1000px 1000px;}
 }
 
-/* SKYLINE */
-.skyline{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:200px;
-    background:linear-gradient(to top,#000 80%,transparent);
-}
-.building{
-    position:absolute;
-    bottom:0;
-    background:#111;
+h1 {
+    font-size: 50px;
+    text-align: center;
+    z-index: 2;
 }
 
-/* WEBS */
-.web{
-    position:absolute;
-    width:150px;
-    height:150px;
-    border:2px solid white;
-    border-radius:50%;
-    border-top:none;
-    border-left:none;
-    opacity:0.3;
-}
-.web.left{top:0;left:0;}
-.web.right{top:0;right:0;transform:scaleX(-1);}
-
-/* CENTER TEXT */
-.center{
-    position:absolute;
-    top:40%;
-    width:100%;
-    text-align:center;
-}
-h1{
-    text-shadow:0 0 20px gold;
-}
-button{
-    padding:12px 25px;
-    margin:10px;
-    border:none;
-    border-radius:25px;
-    font-size:18px;
-    cursor:pointer;
-}
-#yes{background:crimson;color:white;}
-#no{background:#444;color:white;}
-#song{background:gold;color:black;}
-
-/* SWING */
-.swing{
-    position:absolute;
-    top:10%;
-    left:-200px;
-    width:120px;
-    animation:swing 3s forwards ease-in-out;
-}
-@keyframes swing{
-    0%{left:-200px;top:5%;}
-    50%{top:25%;}
-    100%{left:110%;top:10%;}
+button {
+    padding: 12px 30px;
+    margin: 10px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2;
 }
 
-/* SHAKE */
-.shake{
-    animation:shake 0.5s;
-}
-@keyframes shake{
-    0%{transform:translateX(0);}
-    25%{transform:translateX(-10px);}
-    50%{transform:translateX(10px);}
-    75%{transform:translateX(-10px);}
-    100%{transform:translateX(0);}
+#yesBtn { background: crimson; color: white; }
+#noBtn { background: gray; color: white; }
+
+/* SCENE 2 - BRIDGE */
+#scene2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("bridge.jpeg") center/cover no-repeat;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
 }
 
-/* LOVE TEXT */
-.love{
-    position:absolute;
-    top:60%;
-    width:100%;
-    text-align:center;
-    font-size:28px;
-    color:#ff4d6d;
-    text-shadow:0 0 20px hotpink;
+#characters {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    animation: swing 4s ease-in-out forwards;
 }
 
-/* BUBBLE */
-.bubble{
-    position:absolute;
-    bottom:25%;
-    left:50%;
-    transform:translateX(-50%);
-    background:white;
-    color:black;
-    padding:15px;
-    border-radius:20px;
-    font-weight:bold;
+@keyframes swing {
+    0% { transform: translateX(-300px); }
+    100% { transform: translateX(300px); }
 }
 
-/* FART */
-.fart{
-    position:absolute;
-    bottom:30%;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:40px;
+#loveText {
+    font-size: 40px;
+    margin-top: 20px;
+    display: none;
 }
+
+.confetti {
+    position: absolute;
+    font-size: 25px;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px); }
+    100% { transform: translateY(800px); }
+}
+
+/* NO SCENE */
+#noScene {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="moon"></div>
-<div class="web left"></div>
-<div class="web right"></div>
-<div class="skyline"></div>
+<!-- SCENE 1 -->
+<div id="scene1">
+    <div class="stars"></div>
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesBtn">YES ❤️</button>
+    <button id="noBtn">NO 💔</button>
+</div>
 
-<div class="center" id="main">
-<h1>
-In every universe…<br>
-in every timeline…<br>
-I’d still swing back to you.<br><br>
-Rhythm, will you be my Valentine?
-</h1>
+<!-- SCENE 2 -->
+<div id="scene2">
+    <img src="spideykitty.jpg" id="characters">
+    <div id="loveText">I LOVE YOU MY RIDDHU PIDDHU RASGULLE ❤️</div>
+</div>
 
-<button id="yes">YES ❤️</button>
-<button id="no">NO 💔</button><br>
-<button id="song">🎵 Play Our Song</button>
+<!-- NO SCENE -->
+<div id="noScene">
+    <h1>You should say yes, you farty pants.</h1>
+    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="250">
 </div>
 
 <script>
+const scene1 = document.getElementById("scene1");
+const scene2 = document.getElementById("scene2");
+const noScene = document.getElementById("noScene");
+const loveText = document.getElementById("loveText");
 
-/* STAR GENERATOR */
-for(let i=0;i<1000;i++){
-    let star=document.createElement("div");
-    star.className="star";
-    let size=Math.random()*2+1;
-    star.style.width=size+"px";
-    star.style.height=size+"px";
-    star.style.top=Math.random()*100+"vh";
-    star.style.left=Math.random()*100+"vw";
-    document.body.appendChild(star);
-}
+document.getElementById("yesBtn").onclick = function() {
+    scene1.style.display = "none";
+    scene2.style.display = "flex";
 
-/* HEARTS AROUND MOON */
-for(let i=0;i<8;i++){
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="♥";
-    heart.style.top=(12+Math.random()*10)+"%";
-    heart.style.right=(12+Math.random()*10)+"%";
-    document.body.appendChild(heart);
-}
+    setTimeout(() => {
+        loveText.style.display = "block";
 
-/* SKYLINE BUILDINGS */
-for(let i=0;i<30;i++){
-    let b=document.createElement("div");
-    b.className="building";
-    b.style.left=(i*4)+"%";
-    b.style.width="3%";
-    b.style.height=(50+Math.random()*150)+"px";
-    document.querySelector(".skyline").appendChild(b);
-}
-
-/* SONG BUTTON */
-document.getElementById("song").onclick=function(){
-    window.open("https://youtu.be/8rL4jorQlXw?si=llccNCCDrtXP8pK8","_blank");
+        for(let i=0;i<30;i++){
+            let conf = document.createElement("div");
+            conf.className = "confetti";
+            conf.innerHTML = "💖";
+            conf.style.left = Math.random()*100 + "%";
+            document.body.appendChild(conf);
+        }
+    }, 4000);
 };
 
-/* YES */
-document.getElementById("yes").onclick=function(){
-    document.body.style.background="black";
-    document.querySelectorAll(".star").forEach(s=>s.style.transform="scale(2)");
+document.getElementById("noBtn").onclick = function() {
+    scene1.style.display = "none";
+    noScene.style.display = "flex";
 
-    let swing=document.createElement("div");
-    swing.className="swing";
-    swing.innerHTML=`
-    <svg viewBox="0 0 100 200">
-      <circle cx="50" cy="40" r="10" fill="red"/>
-      <rect x="45" y="50" width="10" height="40" fill="red"/>
-      <circle cx="65" cy="50" r="8" fill="pink"/>
-    </svg>`;
-    document.body.appendChild(swing);
-
-    setTimeout(()=>{
-        let love=document.createElement("div");
-        love.className="love";
-        love.innerHTML="We are meant to be in every universe.<br>I will swing back to you.";
-        document.body.appendChild(love);
-    },2500);
-};
-
-/* NO */
-document.getElementById("no").onclick=function(){
-    document.body.classList.add("shake");
-
-    let swing=document.createElement("div");
-    swing.className="swing";
-    swing.innerHTML=`<svg viewBox="0 0 100 200">
-      <circle cx="50" cy="40" r="10" fill="red"/>
-      <rect x="45" y="50" width="10" height="40" fill="red"/>
-    </svg>`;
-    document.body.appendChild(swing);
-
-    setTimeout(()=>{
-        let bubble=document.createElement("div");
-        bubble.className="bubble";
-        bubble.innerHTML="You should say YES, you farty.";
-        document.body.appendChild(bubble);
-
-        let fart=document.createElement("div");
-        fart.className="fart";
-        fart.innerHTML="💨";
-        document.body.appendChild(fart);
-
-        setTimeout(()=>{
-            location.reload();
-        },3000);
-
-    },2000);
+    setTimeout(() => {
+        location.reload();
+    }, 4000);
 };
 </script>
 
