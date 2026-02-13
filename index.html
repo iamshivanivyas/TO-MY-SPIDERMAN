@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine Multiverse</title>
+<title>Our Valentine</title>
 
 <style>
 body{
@@ -27,7 +27,7 @@ body{
 }
 
 h1{
-    font-size:42px;
+    font-size:45px;
     margin-bottom:20px;
 }
 
@@ -42,6 +42,12 @@ button{
 
 #yes{ background:#ff4d6d; color:white; }
 #no{ background:#555; color:white; }
+
+.music-btn{
+    background:#ff4d6d;
+    color:white;
+    box-shadow:0 0 15px pink;
+}
 
 /* Stars */
 .star{
@@ -91,17 +97,15 @@ button{
     background:rgba(0,0,0,0.3);
 }
 
-/* Characters positioned RIGHT and STILL */
 #characters{
     position:absolute;
     bottom:0;
     right:5%;
-    width:300px;
+    width:320px;
 }
 
-/* Love text */
 #loveText{
-    font-size:36px;
+    font-size:38px;
     text-shadow:0 0 20px pink;
     z-index:2;
 }
@@ -140,8 +144,9 @@ button{
     <h1 id="loveText">I LOVE YOU MY RIDDHU PIDDHU RASGULLE 💖</h1>
 
     <div style="margin-top:20px; z-index:2;">
-        <button onclick="window.open('https://www.youtube.com/watch?v=Fxypz6kJ-98','_blank')">
-            🎵 Play Our Song
+        <button class="music-btn"
+        onclick="window.open('https://www.youtube.com/watch?v=Fxypz6kJ-98','_blank')">
+        🎵 Play Our Song
         </button>
     </div>
 
@@ -191,6 +196,7 @@ document.getElementById("no").onclick=function(){
         location.reload();
     },4000);
 };
+
 </script>
 
 </body>
